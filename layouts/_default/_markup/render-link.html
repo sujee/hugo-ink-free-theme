@@ -1,0 +1,29 @@
+{{- $url := .Destination -}}
+{{- $text := .Text -}}
+{{- $title := .Title -}}
+
+{{- /* Check if the link is external */ -}}
+{{- $isExternal := false -}}
+{{- if hasPrefix $url "http://" -}}
+  {{- $isExternal = true -}}
+{{- else if hasPrefix $url "https://" -}}
+  {{- $isExternal = true -}}
+{{- else if hasPrefix $url "//" -}}
+  {{- $isExternal = true -}}
+{{- end -}}
+
+{{- /* Check if it's an internal link to the same domain */ -}}
+{{- if $isExternal -}}
+  {{- $siteHost := urls.Parse .Page.Site.BaseURL | .Host -}}
+  {{- $linkHost := urls.Parse $url | .Host -}}
+  {{- if eq $siteHost $linkHost -}}
+    {{- $isExternal = false -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Render the link with appropriate attributes */ -}}
+<a href="{{ $url | safeURL }}"
+   {{- if $title }} title="{{ $title }}"{{ end }}
+   {{- if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
+   {{- $text | safeHTML -}}
+</a>
