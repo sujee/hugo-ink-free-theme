@@ -615,6 +615,12 @@ ul {
         font-size: 0.8em !important;
         line-height: 1.4 !important;
     }
+
+    /* Read More button on mobile */
+    .read-more-btn {
+        font-size: 0.75em !important;
+        padding: 5px 10px !important;
+    }
 }
 
 .tag-li {
@@ -802,4 +808,25 @@ code {
     padding: 2px 4px;
     border-radius: 3px;
     font-size: 0.9em;
+}
+
+/* Read More button styling - toned down */
+.read-more-btn {
+    display: inline-block;
+    background: none;
+    color: #666;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.75em;
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+.read-more-btn:hover {
+    background: #f8f9fa;
+    color: #3700ff;
+    border-color: #3700ff;
+    border-bottom: 1px solid #3700ff;
 }
