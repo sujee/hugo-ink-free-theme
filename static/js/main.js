@@ -45,4 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
             toggleDarkMode();
         });
     }
+
+    // Make all external links in descriptions open in new tabs
+    const descriptionLinks = document.querySelectorAll('.description a');
+    descriptionLinks.forEach(function(link) {
+        // Check if the link is external (doesn't start with current domain or relative path)
+        if (link.href && !link.href.startsWith(window.location.origin) && !link.href.startsWith('#') && !link.href.startsWith('mailto:')) {
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+        }
+    });
 });
