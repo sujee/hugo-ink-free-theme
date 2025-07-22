@@ -452,7 +452,8 @@ ul {
 
 @media (max-width: 900px) {
     body {
-        padding: 20px;
+        padding: 15px;
+        font-size: 16px;
     }
 
     h1 {
@@ -484,12 +485,135 @@ ul {
         font-size: 14px;
     }
 
+    /* Header improvements for mobile */
+    .header {
+        text-align: center;
+        padding-bottom: 15px;
+    }
+
+    .header .site-title {
+        font-size: 1.4em;
+        margin-bottom: 8px;
+    }
+
+    .header .site-description {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .header nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
     table {
         -ms-overflow-style: -ms-autohiding-scrollbar;
         -webkit-overflow-scrolling: touch;
         display: block;
         overflow-x: auto;
         width: 100%;
+    }
+
+    /* Mobile post layout improvements */
+    .post-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .post-header .meta {
+        margin-bottom: 12px !important;
+        width: 100% !important;
+    }
+
+    .post-header .meta .date {
+        margin-right: 0 !important;
+        width: auto !important;
+        text-align: left !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .post-header .meta .date .day {
+        font-size: 1.4em !important;
+        margin-bottom: 0 !important;
+        display: inline !important;
+    }
+
+    .post-header .meta .date .rest {
+        font-size: 0.9em !important;
+        display: inline !important;
+    }
+
+    /* Better button/tag wrapping on mobile */
+    .mobile-tag-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+        gap: 6px !important;
+        justify-items: start !important;
+    }
+
+    .mobile-tag-grid a {
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 0.7em !important;
+        padding: 4px 6px !important;
+    }
+
+    /* Social links on mobile - smaller icons */
+    .mobile-social-row {
+        justify-content: flex-start !important;
+        gap: 4px !important;
+    }
+
+    .mobile-social-row a {
+        padding: 3px 5px !important;
+        font-size: 0.75em !important;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .container {
+        padding: 0 5px;
+    }
+
+    .wrapper {
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    /* Even more compact on very small screens */
+    .post-header .meta .date .day {
+        font-size: 1.2em !important;
+    }
+
+    .mobile-tag-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+        gap: 4px !important;
+    }
+
+    .mobile-tag-grid a {
+        font-size: 0.65em !important;
+        padding: 3px 5px !important;
+    }
+
+    /* Post cards adjustments for very small screens */
+    .post {
+        padding: 12px 14px 6px 14px !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Compact description on small screens */
+    .description {
+        font-size: 0.8em !important;
+        line-height: 1.4 !important;
     }
 }
 
