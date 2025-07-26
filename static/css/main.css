@@ -360,7 +360,11 @@ ul {
 }
 
 .post-header h1.title {
-    margin: -10px 0 0 0;
+    margin: 0 0 16px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #1e293b;
 }
 
 .post .title.small {
@@ -620,6 +624,12 @@ ul {
     .read-more-btn {
         font-size: 0.75em !important;
         padding: 5px 10px !important;
+    }
+
+    /* Post title on very small screens */
+    .post-header h1.title {
+        font-size: 1.2rem !important;
+        margin-bottom: 12px !important;
     }
 }
 
