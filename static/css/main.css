@@ -825,3 +825,9 @@ code {
     border-color: #3700ff;
     border-bottom: 1px solid #3700ff;
 }
+
+/* Featured topic styling with star emoji */
+.topic-featured::before {
+    content: "⭐";
+    margin-right: 2px;
+}
