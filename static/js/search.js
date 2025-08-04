@@ -8,8 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function initSearch() {
     try {
-        // Fetch the search index
-        const response = await fetch('/index.json');
+        // Fetch the search index - construct URL based on site structure
+        const currentPath = window.location.pathname;
+        const baseURL = currentPath.includes('/ai-events-recap/') 
+            ? window.location.origin + '/ai-events-recap'
+            : window.location.origin;
+        const indexURL = baseURL + '/index.json';
+        const response = await fetch(indexURL);
         searchData = await response.json();
         
         // Configure Fuse.js options
