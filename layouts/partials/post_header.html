@@ -9,6 +9,8 @@
     </div>
     {{ end }}
     <div class="matter">
+        {{ if not .Params.hide_title }}
         <h1 class="title">{{ .Title }}</h1>
+        {{ end }}
     </div>
 </div>

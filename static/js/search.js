@@ -28,18 +28,16 @@ async function initSearch() {
         // Initialize Fuse
         fuse = new Fuse(searchData, options);
         
-        // Set up search input handler
-        const searchInput = document.getElementById('search-input');
-        if (searchInput) {
-            searchInput.addEventListener('input', handleSearch);
-            
-            // Check if there's a search query in URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const query = urlParams.get('q');
-            if (query) {
-                searchInput.value = query;
-                performSearch(query);
+        // Check if there's a search query in URL and perform search
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q');
+        if (query) {
+            // Set the search heading
+            const searchHeading = document.getElementById('search-heading');
+            if (searchHeading) {
+                searchHeading.textContent = `Search results for: "${query}"`;
             }
+            performSearch(query);
         }
     } catch (error) {
         console.error('Error initializing search:', error);
@@ -78,9 +76,6 @@ function displayResults(results, query) {
     const resultsHTML = results.map(result => {
         const item = result.item;
         
-        // Format date
-        const eventDate = item.event_date ? new Date(item.event_date).toLocaleDateString() : '';
-        
         // Format topics
         const topicsHTML = item.topics ? 
             item.topics.map(topic => `<span class="topic">${topic}</span>`).join('') : '';
@@ -89,8 +84,7 @@ function displayResults(results, query) {
             <div class="search-result">
                 <h3><a href="${item.permalink}">${item.title}</a></h3>
                 <div class="search-result-meta">
-                    ${eventDate ? `Event Date: ${eventDate}` : ''}
-                    ${item.categories ? ` | Category: ${item.categories.join(', ')}` : ''}
+                    ${item.categories ? `Category: ${item.categories.join(', ')}` : ''}
                 </div>
                 <p class="search-result-summary">${item.summary || ''}</p>
                 ${topicsHTML ? `<div class="search-result-topics">${topicsHTML}</div>` : ''}
