@@ -11,5 +11,34 @@
     </aside>
     {{ end }}
     {{ .Content }}
+    
+    <div class="related-events">
+        <h3>Related Events</h3>
+        {{ $related := .Site.RegularPages.Related . | first 5 }}
+        {{ if $related }}
+        <ul class="related-list">
+            {{ range $related }}
+            <li class="related-item">
+                <a href="{{ .RelPermalink }}" class="related-link">
+                    <strong>{{ .Title }}</strong>
+                    {{ if .Params.event_date }}
+                    <span class="related-date">{{ dateFormat "Jan 2, 2006" .Params.event_date }}</span>
+                    {{ end }}
+                </a>
+                {{ if .Params.topics }}
+                <div class="related-topics">
+                    {{ range first 3 .Params.topics }}
+                    <span class="topic-tag">{{ . }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </li>
+            {{ end }}
+        </ul>
+        {{ else }}
+        <p style="font-style: italic; color: #666;">No related events found.</p>
+        {{ end }}
+    </div>
+    
     {{ partial "article_footer.html" . }}
 </div>

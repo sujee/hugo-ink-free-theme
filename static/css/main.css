@@ -41,6 +41,71 @@ hr {
     padding: 0;
 }
 
+/* Related Events Styling */
+.related-events {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3700ff;
+}
+
+.related-events h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.related-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.related-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.related-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.related-link {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.related-link strong {
+    color: #3700ff;
+    font-weight: 600;
+}
+
+.related-date {
+    color: #666;
+    font-size: 0.9em;
+    margin-left: 0.5rem;
+}
+
+.related-topics {
+    margin-top: 0.5rem;
+}
+
+.topic-tag {
+    display: inline-block;
+    background: #e9ecef;
+    color: #495057;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-right: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
 img {
     margin: 10px auto 10px auto;
     max-width: 100%;
